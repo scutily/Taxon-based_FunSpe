@@ -1,4 +1,3 @@
-### read data
 # A ecosystem function that utilizing Glucose-1-phosphate 
 EF <- read.csv("EF_G1P.csv")  
 
@@ -15,7 +14,7 @@ composition_ASV <- as.matrix(composition_ASV[,-1])
 
 # install.packages("doParallel")
 library("doParallel")
-registerDoParallel(detectCores()) ## speed up the computation
+registerDoParallel(detectCores()) ## Speed up the computation
 
 a <- c(1:9)/10   # Set alpha values from 0.1-0.9 for sparse regression (i.e., pure elastic net)
 
@@ -33,4 +32,4 @@ abs_repr_ASV <- length(which(msaenet_minmse_coefficients<0))  # Absolute number 
 prop_faci_ASV <- abs_faci_ASV/(abs_faci_ASV+abs_repr_ASV) # Proportion of facilitative ASV
 
 specificity_taxon <- data.frame(abs_faci_ASV, abs_repr_ASV, prop_faci_ASV)
-
+specificity_taxon
